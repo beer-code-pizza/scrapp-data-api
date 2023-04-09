@@ -4,4 +4,7 @@
 *.pyc
 *.json
 *__pycache__
-db.sqlite3
+Lib/
+Scripts/
+api/database/db.sqlite3-journal
+pyvenv.cfg
