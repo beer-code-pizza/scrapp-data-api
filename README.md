@@ -10,7 +10,7 @@ Repositório com os scripts de webscrapping dos dados de supermercados e da API 
 
 
 ## Consideracoes
-Para fazer o post na API com os dados dos supermercados é preciso preparar o ambiente local, ou seja, clonar o repositório, criar um ambiente virtual e rodar os comandos no Makefile dentro do ambiente virtual criado. Os dados são coletados via webscrapping utilizando as bibliotecas bs4 e resquests e a API foi desenvolvida com FastAPI, persistindo os dados no banco de dados relacional SQLite3. Ambos em Python3.
+Para fazer o webscrapping dos dados, subir a API e fazer o CRUD é preciso preparar o ambiente local, ou seja, clonar o repositório, criar um ambiente virtual e rodar os comandos no Makefile dentro do ambiente virtual criado. Os dados são coletados via webscrapping utilizando as bibliotecas bs4 e resquests e a API foi desenvolvida com FastAPI, persistindo os dados no banco de dados relacional SQLite3.
 
 
 ## Estrutura de Diretórios
