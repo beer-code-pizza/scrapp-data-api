@@ -27,6 +27,7 @@ for category in categoryUrls:
         print("Category: ", category)
         firstUrl = f"https://api.linximpulse.com/engage/search/v3/navigates?apiKey=paodeacucar&origin=https://www.paodeacucar.com&page=1&resultsPerPage=100&multicategory={category}&salesChannel=461&salesChannel=catalogmkp&sortby=relevance"
         response = get(firstUrl)
+        print("Sending a GET request to a: ", firstUrl)
         getItensAndPrices(response).to_csv(f"{path}/itens_precos_{category}_{source}.csv", header=True, sep = ';', index = False)
         for page in range(2,200):
             fullUrl = f"https://api.linximpulse.com/engage/search/v3/navigates?apiKey=paodeacucar&origin=https://www.paodeacucar.com&page={page}&resultsPerPage=100&multicategory={category}&salesChannel=461&salesChannel=catalogmkp&sortby=relevance"

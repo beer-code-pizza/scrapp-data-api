@@ -39,7 +39,7 @@ for category, firstUrl in firstUrls.items():
             next_url = getNextUrl(next_url)
     except:
         pass
-    df = read_csv(f"{path}/itens_precos_{category}_{source}.csv", header=0, delimiter=';', engine='python')
+    df = read_csv(f"{path}/itens_precos_{category}_{source}.csv", header=0, delimiter=';')
     df_result = concat([df_result,df])
 
 df_result = df_result.where(notnull(df_result), None)
