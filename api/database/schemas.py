@@ -1,28 +1,54 @@
 from pydantic import BaseModel
 
-class ItemPrezunicBase(BaseModel):
+#############################################################################################
+################################      Prezunic      #########################################
+#############################################################################################
+
+class PrezunicBase(BaseModel):
     id: int
     nome: str
     preco: float
 
-class ItemPrezunicRequest(ItemPrezunicBase):
+class PrezunicRequest(PrezunicBase):
     ...
 
-class ItemPrezunicResponse(ItemPrezunicBase):
+class PrezunicResponse(PrezunicBase):
     id: int
 
     class Config:
         orm_mode = True
 
-class ItemMercadoLivreBase(BaseModel):
+#############################################################################################
+##############################      Mercado Livre      ######################################
+#############################################################################################
+
+class MercadoLivreBase(BaseModel):
     id: int
     nome: str
     preco: float
 
-class ItemMercadoLivreRequest(ItemMercadoLivreBase):
+class MercadoLivreRequest(MercadoLivreBase):
     ...
 
-class ItemMercadoLivreResponse(ItemMercadoLivreBase):
+class MercadoLivreResponse(MercadoLivreBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+#############################################################################################
+##############################      Pao de Acucar      ######################################
+#############################################################################################
+
+class PaodeAcucarBase(BaseModel):
+    id: int
+    nome: str
+    preco: float
+
+class PaodeAcucarRequest(PaodeAcucarBase):
+    ...
+
+class PaodeAcucarResponse(PaodeAcucarBase):
     id: int
 
     class Config:

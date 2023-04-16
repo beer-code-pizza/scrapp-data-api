@@ -30,19 +30,20 @@ else:
 for category, firstUrl in basetUrls.items():
     try:
         print("Category: ", category)
-        dataTransformation(getItensAndPrices(getWithBs4(firstUrl)),source).to_csv(f"{path}/itens_precos_{category}_prezunic.csv", header=True, sep = ';', index = False)
+        dataTransformation(getItensAndPrices(getWithBs4(firstUrl)),source).to_csv(f"{path}/itens_precos_{category}_{source}.csv", header=True, sep = ';', index = False)
         for page in range(1,200):
             next_url = getNextUrl(str(page), category)
             
             print("Sending a GET request to a: ", next_url)
             
-            dataTransformation(getItensAndPrices(getWithBs4(next_url)),source).to_csv(f"{path}/itens_precos_{category}_prezunic.csv", sep = ';', header = False, index = False, mode='a')
+            dataTransformation(getItensAndPrices(getWithBs4(next_url)),source).to_csv(f"{path}/itens_precos_{category}_{source}.csv", sep = ';', header = False, index = False, mode='a')
                         
-            df = read_csv(f"{path}/itens_precos_{category}_prezunic.csv", header=0, delimiter=';')
+            df = read_csv(f"{path}/itens_precos_{category}_{source}.csv", header=0, delimiter=';', engine='python')
             df_result = concat([df_result,df])
     except:
         pass
 
 df_result = df_result.where(notnull(df_result), None)
+df_result.mask(df_result.eq('None')).dropna()
 df_result.to_csv(f"{path}/itens_precos_{source}.csv", sep = ';', header = True, index = False, mode='a')
 
