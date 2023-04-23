@@ -13,6 +13,10 @@ app = FastAPI()
 #################################      Prezunic      ########################################
 #############################################################################################
 
+@app.get("/health", response_model=list[PrezunicResponse])
+def health():   
+    return "ok"
+
 @app.get("/api/prezunic/list_itens", response_model=list[PrezunicResponse])
 async def find_all(page: int = Query(1, gt=0), page_size: int = Query(10, gt = 0, le=100), db: Session = Depends(get_db)):
     start_index = (page-1)*page_size
