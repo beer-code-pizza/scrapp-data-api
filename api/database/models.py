@@ -1,3 +1,4 @@
+from typing import List
 from api.database.database import Base
 from sqlalchemy import Column, Integer, String, Float
 

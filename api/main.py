@@ -20,7 +20,7 @@ def find_all(db: Session = Depends(get_db)):
 
 @app.post("/api/prezunic/add_itens", response_model=PrezunicResponse, status_code=status.HTTP_201_CREATED)
 def create(request: PrezunicRequest, db: Session = Depends(get_db)):
-    item = PrezunicRepository.save(db, Prezunic(**request.dict()))
+    item = list(PrezunicRepository).save(db, Prezunic(**request.dict()))
     return PrezunicResponse.from_orm(item)
 
 @app.delete("/api/prezunic/delete_item/{id}", status_code=status.HTTP_204_NO_CONTENT)
