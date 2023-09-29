@@ -21,5 +21,4 @@ delete-api:
 
 all:
 	make install-requirements
-	make scrapp-data
 	up-api
