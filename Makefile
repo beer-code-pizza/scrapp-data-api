@@ -20,5 +20,5 @@ delete-api:
 	python3 delete.py
 
 all:
-	make install-requirements
-	make up-api
+	python3 -m pip install -r requirements.txt
+	python3 -m uvicorn api.main:app --reload
