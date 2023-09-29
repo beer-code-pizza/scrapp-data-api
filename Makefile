@@ -4,6 +4,8 @@ install-requirements:
 scrapp-data:
 	python3 data/poc_prezunic.py
 	python3 data/poc_mercadolivre.py
+	python3 data/poc_paodeacucar.py
+
 
 up-api:
 	python3 -m uvicorn api.main:app --reload

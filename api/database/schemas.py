@@ -9,6 +9,7 @@ class PrezunicBase(BaseModel):
     id: int
     nome: str
     preco: float
+    # fonte: str
 
 class PrezunicRequest(PrezunicBase):
     ...
@@ -27,6 +28,7 @@ class MercadoLivreBase(BaseModel):
     id: int
     nome: str
     preco: float
+    # fonte: str
 
 class MercadoLivreRequest(MercadoLivreBase):
     ...
@@ -45,6 +47,7 @@ class PaodeAcucarBase(BaseModel):
     id: int
     nome: str
     preco: float
+    # fonte: str
 
 class PaodeAcucarRequest(PaodeAcucarBase):
     ...
