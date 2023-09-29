@@ -24,19 +24,19 @@ async def find_all(page: int = Query(1, gt=0), page_size: int = Query(10, gt = 0
     itens = PrezunicRepository.find_all(db)
     return [PrezunicResponse.from_orm(item) for item in itens][start_index:end_index]
 
-@app.post("/api/prezunic/add_itens", response_model=PrezunicResponse, status_code=status.HTTP_201_CREATED)
-def create(request: PrezunicRequest, db: Session = Depends(get_db)):
-    item = list(PrezunicRepository).save(db, Prezunic(**request.dict()))
-    return PrezunicResponse.from_orm(item)
+# @app.post("/api/prezunic/add_itens", response_model=PrezunicResponse, status_code=status.HTTP_201_CREATED)
+# def create(request: PrezunicRequest, db: Session = Depends(get_db)):
+#     item = list(PrezunicRepository).save(db, Prezunic(**request.dict()))
+#     return PrezunicResponse.from_orm(item)
 
-@app.delete("/api/prezunic/delete_item/{id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_by_id(id: int, db: Session = Depends(get_db)):
-    if not PrezunicRepository.exists_by_id(db, id):
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Item não encontrado"
-        )
-    PrezunicRepository.delete_by_id(db, id)
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+# @app.delete("/api/prezunic/delete_item/{id}", status_code=status.HTTP_204_NO_CONTENT)
+# def delete_by_id(id: int, db: Session = Depends(get_db)):
+#     if not PrezunicRepository.exists_by_id(db, id):
+#         raise HTTPException(
+#             status_code=status.HTTP_404_NOT_FOUND, detail="Item não encontrado"
+#         )
+#     PrezunicRepository.delete_by_id(db, id)
+#     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 #############################################################################################
 ##############################      Mercado Livre      ##########################   ############
@@ -49,19 +49,19 @@ def find_all(page: int = Query(1, gt=0), page_size: int = Query(10, gt = 0, le=1
     itens = MercadoLivreRepository.find_all(db)
     return [MercadoLivreResponse.from_orm(item) for item in itens][start_index:end_index]
 
-@app.post("/api/mercadolivre/add_itens", response_model=MercadoLivreResponse, status_code=status.HTTP_201_CREATED)
-def create(request: MercadoLivreRequest, db: Session = Depends(get_db)):
-    item = MercadoLivreRepository.save(db, MercadoLivre(**request.dict()))
-    return MercadoLivreResponse.from_orm(item)
+# @app.post("/api/mercadolivre/add_itens", response_model=MercadoLivreResponse, status_code=status.HTTP_201_CREATED)
+# def create(request: MercadoLivreRequest, db: Session = Depends(get_db)):
+#     item = MercadoLivreRepository.save(db, MercadoLivre(**request.dict()))
+#     return MercadoLivreResponse.from_orm(item)
 
-@app.delete("/api/mercadolivre/delete_item/{id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_by_id(id: int, db: Session = Depends(get_db)):
-    if not MercadoLivreRepository.exists_by_id(db, id):
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Item não encontrado"
-        )
-    MercadoLivreRepository.delete_by_id(db, id)
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+# @app.delete("/api/mercadolivre/delete_item/{id}", status_code=status.HTTP_204_NO_CONTENT)
+# def delete_by_id(id: int, db: Session = Depends(get_db)):
+#     if not MercadoLivreRepository.exists_by_id(db, id):
+#         raise HTTPException(
+#             status_code=status.HTTP_404_NOT_FOUND, detail="Item não encontrado"
+#         )
+#     MercadoLivreRepository.delete_by_id(db, id)
+#     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 #############################################################################################
 ##############################      Pao de Acucar      ######################################
@@ -74,16 +74,16 @@ def find_all(page: int = Query(1, gt=0), page_size: int = Query(10, gt = 0, le=1
     itens = PaodeAcucarRepository.find_all(db)
     return [PaodeAcucarResponse.from_orm(item) for item in itens][start_index:end_index]
 
-@app.post("/api/paodeacucar/add_itens", response_model=MercadoLivreResponse, status_code=status.HTTP_201_CREATED)
-def create(request: PaodeAcucarRequest, db: Session = Depends(get_db)):
-    item = PaodeAcucarRepository.save(db, PaodeAcucar(**request.dict()))
-    return PaodeAcucarResponse.from_orm(item)
+# @app.post("/api/paodeacucar/add_itens", response_model=MercadoLivreResponse, status_code=status.HTTP_201_CREATED)
+# def create(request: PaodeAcucarRequest, db: Session = Depends(get_db)):
+#     item = PaodeAcucarRepository.save(db, PaodeAcucar(**request.dict()))
+#     return PaodeAcucarResponse.from_orm(item)
 
-@app.delete("/api/paodeacucar/delete_item/{id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_by_id(id: int, db: Session = Depends(get_db)):
-    if not PaodeAcucarRepository.exists_by_id(db, id):
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Item não encontrado"
-        )
-    PaodeAcucarRepository.delete_by_id(db, id)
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+# @app.delete("/api/paodeacucar/delete_item/{id}", status_code=status.HTTP_204_NO_CONTENT)
+# def delete_by_id(id: int, db: Session = Depends(get_db)):
+#     if not PaodeAcucarRepository.exists_by_id(db, id):
+#         raise HTTPException(
+#             status_code=status.HTTP_404_NOT_FOUND, detail="Item não encontrado"
+#         )
+#     PaodeAcucarRepository.delete_by_id(db, id)
+#     return Response(status_code=status.HTTP_204_NO_CONTENT)
