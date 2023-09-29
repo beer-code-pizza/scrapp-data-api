@@ -18,3 +18,8 @@ post-api:
 
 delete-api:
 	python3 delete.py
+
+all:
+	make install-requirements
+	make scrapp-data
+	up-api
