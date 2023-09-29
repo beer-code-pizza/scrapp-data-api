@@ -21,4 +21,4 @@ delete-api:
 
 all:
 	make install-requirements
-	up-api
+	make up-api
