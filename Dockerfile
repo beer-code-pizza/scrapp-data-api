@@ -12,5 +12,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./api /code/api
 
+EXPOSE 8000
+
 # Run app.py when the container launches
-CMD ["python3", "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["python3", "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0"]
