@@ -20,18 +20,12 @@ class PrezunicRepository:
         return Prezunic
 
     @staticmethod
-    def find_by_font(db: Session, id: str) -> Prezunic:
+    def find_by_id(db: Session, id: str) -> Prezunic:
         return db.query(Prezunic).filter(Prezunic.id == id).first()
 
     @staticmethod
     def exists_by_id(db: Session, id: int) -> bool:
         return db.query(Prezunic).filter(Prezunic.id == id).first() is not None
-
-    @staticmethod
-    def delete_all(db: Session) -> None:
-        itens = db.query(Prezunic).all()
-        db.delete(itens)
-        db.commit()
     
     @staticmethod
     def delete_by_id(db: Session, id: str) -> None:
@@ -59,18 +53,12 @@ class MercadoLivreRepository:
         return MercadoLivre
 
     @staticmethod
-    def find_by_font(db: Session, id: str) -> MercadoLivre:
+    def find_by_id(db: Session, id: str) -> MercadoLivre:
         return db.query(MercadoLivre).filter(MercadoLivre.id == id).first()
 
     @staticmethod
     def exists_by_id(db: Session, id: int) -> bool:
         return db.query(MercadoLivre).filter(MercadoLivre.id == id).first() is not None
-
-    @staticmethod
-    def delete_all(db: Session) -> None:
-        itens = db.query(MercadoLivre).all()
-        db.delete(itens)
-        db.commit()
     
     @staticmethod
     def delete_by_id(db: Session, id: str) -> None:
@@ -98,18 +86,12 @@ class PaodeAcucarRepository:
         return PaodeAcucar
 
     @staticmethod
-    def find_by_font(db: Session, id: str) -> PaodeAcucar:
+    def find_by_id(db: Session, id: str) -> PaodeAcucar:
         return db.query(PaodeAcucar).filter(PaodeAcucar.id == id).first()
 
     @staticmethod
     def exists_by_id(db: Session, id: int) -> bool:
         return db.query(PaodeAcucar).filter(PaodeAcucar.id == id).first() is not None
-
-    @staticmethod
-    def delete_all(db: Session) -> None:
-        itens = db.query(PaodeAcucar).all()
-        db.delete(itens)
-        db.commit()
     
     @staticmethod
     def delete_by_id(db: Session, id: str) -> None:

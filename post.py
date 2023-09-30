@@ -6,7 +6,7 @@ def post(source: str):
     url = f"http://127.0.0.1:8000/api/{source}/add_itens"
     print(source)
 
-    df = read_csv(f'data/{source}_data/itens_precos_{source}.csv', header=0, delimiter=';', engine='python')
+    df = read_csv(f'webscrapping/sources/{source}/itens_precos_{source}.csv', header=0, delimiter=';', engine='python')
 
     for i in df.index:
         payload = json.dumps({
@@ -24,7 +24,7 @@ def post(source: str):
 
         print(response.text)
 
-sources = ["paodeacucar","prezunic","mercadolivre"]
+sources = ["mercadolivre"]
 for source in sources:
     # print(source)
     post(source)

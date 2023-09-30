@@ -8,3 +8,4 @@ Lib/
 Scripts/
 api/database/db.sqlite3-journal
 pyvenv.cfg
+Include/
